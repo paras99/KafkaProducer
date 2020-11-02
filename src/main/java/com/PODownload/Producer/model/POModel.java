@@ -4,22 +4,35 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.springframework.context.annotation.Primary;
+
+import javax.persistence.*;
+
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
 
+@Entity
+@Table(name = "PO")
 public class POModel {
 
-   int PO_number;
-   String PO_date;
-   String PO_address;
-   int PO_line_number;
-   int UPC_number;
-   String UPC_name;
-   int ordered_quantity;
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+   int poNumber;
+   @Column(name="poDate")
+   String poDate;
+   @Column(name="poAddress")
+   String poAddress;
+   @Column(name="poLineNumber")
+   int poLineNumber;
+   @Column(name="upcNumber")
+   int upcNumber;
+   @Column(name="upcName")
+   String upcName;
+   @Column(name="orderedQuantity")
+   int orderedQuantity;
 
 }
 
